@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+:root {
+  --bg_color: #fff8dc;
+}
+*,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.container {
+  position: relative;
+  max-width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background-image: url("img/logo_dark.png");
+  background-position: center;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+  z-index: 4;
+}
+.nav_item:hover .logo {
+  background-image: url("img/logo_whait.png");
+}
+.nav_item {
+  font-family: "Alfa Slab One", cursive;
+  position: relative;
+
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg_color);
+  transition-duration: 2s;
+  border-left: black 4px solid;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.nav_item_w {
+  width: calc(100vw / 6);
+}
+.nav_item_zero {
+  width: 0;
+}
+.nav_item_100vw {
+  width: 100vw;
+}
+
+.nav_item span {
+  z-index: 7;
+}
+.nav_item_text {
+  width: 80%;
+  margin-left: 20px;
+  padding: 0 20px;
+  border-left: white 5px solid;
+  font-size: 20px;
+  position: absolute;
+  bottom: 30%;
+  color: white;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 0.5s linear;
+  z-index: 5;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #696969;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 1s ease;
+  z-index: 1;
+}
+.nav_item:hover .overlay {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.overlay_bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg_color);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease;
+  z-index: 3;
+}
+.btn_cancel {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 200px;
+  height: 200px;
+  background-image: url("img/cancel_icon.png");
+  background-repeat: no-repeat;
+  z-index: 2;
+  display: none;
+  border: none;
+  background-color: transparent;
+}
+.nav_item:hover .overlay_bg {
+  width: 0;
+}
+
+.nav_item:hover {
+  font-size: 50px;
+  color: white;
+}
+.nav_item:hover span {
+  z-index: 2;
+}
+.nav_item:hover .nav_item_text {
+  display: block;
+  height: 10%;
+}
+.bg_img {
+  position: absolute;
+  min-width: 100vw;
+  height: 100vh;
+}
+.bg_img img {
+  width: 100%;
+  height: 100%;
+}
+.nav_item:hover {
+  background-color: transparent;
+}
