@@ -16,37 +16,38 @@ body {
   display: flex;
   justify-content: space-between;
 }
+/* logo  */
 .logo {
   position: absolute;
   top: 50px;
-  left: 50px;
+  left: 15px;
   background-image: url("img/logo_dark.png");
   background-position: center;
   background-size: 300px;
   background-repeat: no-repeat;
-  height: 200px;
-  width: 200px;
+  height: 10%;
+  width: 17%;
   z-index: 4;
 }
-.nav_item:hover .logo {
+.logo_hover {
   background-image: url("img/logo_whait.png");
 }
+/* nav items */
 .nav_item {
   font-family: "Alfa Slab One", cursive;
   position: relative;
-
   font-size: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--bg_color);
-  transition-duration: 2s;
+  transition-duration: 1s;
   border-left: black 4px solid;
   overflow: hidden;
   text-transform: uppercase;
 }
 .nav_item_w {
-  width: calc(100vw / 6);
+  width: calc(100vw / 5);
 }
 .nav_item_zero {
   width: 0;
@@ -55,8 +56,15 @@ body {
   width: 100vw;
 }
 
-.nav_item span {
+.nav_item_title {
+  font-size: calc(24px + 16 * (100vw / 1280));
+  position: absolute;
   z-index: 7;
+  transition: 0.2s ease-out;
+}
+.nav_item_title_position {
+  top: 100px;
+  font-size: 100px;
 }
 .nav_item_text {
   width: 80%;
@@ -64,6 +72,7 @@ body {
   padding: 0 20px;
   border-left: white 5px solid;
   font-size: 20px;
+  letter-spacing: 2px;
   position: absolute;
   bottom: 30%;
   color: white;
@@ -74,6 +83,17 @@ body {
   height: 0;
   transition: 0.5s linear;
   z-index: 5;
+}
+.nav_item_text_pososition {
+  max-width: 20%;
+  left: 50%;
+}
+.nav_item_text_pososition_active {
+  bottom: 70%;
+}
+.nav_item:hover .nav_item_text {
+  display: block;
+  height: 10%;
 }
 
 .overlay {
@@ -105,13 +125,29 @@ body {
   transition: 1s ease;
   z-index: 3;
 }
+.overlay_bg_article {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 1s ease;
+  z-index: 1;
+}
+.overlay_bg_article_active {
+  width: 50%;
+  background-color: rgba(103, 95, 95, 0.8);
+}
+/* button */
 .btn_cancel {
   position: absolute;
-  top: 100px;
-  right: 100px;
-  width: 200px;
-  height: 200px;
+  top: 5%;
+  right: 5%;
+  width: 2vw;
+  height: 2vw;
   background-image: url("img/cancel_icon.png");
+  background-size: 2vw;
   background-repeat: no-repeat;
   z-index: 2;
   display: none;
@@ -129,10 +165,7 @@ body {
 .nav_item:hover span {
   z-index: 2;
 }
-.nav_item:hover .nav_item_text {
-  display: block;
-  height: 10%;
-}
+
 .bg_img {
   position: absolute;
   min-width: 100vw;
@@ -144,4 +177,64 @@ body {
 }
 .nav_item:hover {
   background-color: transparent;
+}
+@media (max-width: 1300px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .logo {
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    background-size: 200px;
+  }
+  .nav_item {
+    width: 100%;
+    height: calc(100vh / 5);
+    border: none;
+    border-bottom: black 4px solid;
+  }
+  .nav_item_zero {
+    height: 0;
+  }
+  .nav_item_100vw {
+    height: 100%;
+  }
+  .nav_item_text {
+    bottom: 20%;
+  }
+  .nav_item_text_pososition_active {
+    left: 52%;
+    bottom: 70%;
+  }
+  .btn_cancel {
+    width: 45px;
+    height: 45px;
+    background-size: 45px;
+    top: 3%;
+  }
+}
+@media (max-width: 767px) {
+  .nav_item_title {
+    font-size: calc(24px + (16 +16 * 0.7) * ((100vw - 320px) / 1280));
+  }
+  .nav_item_text {
+    font-size: calc(10px + (16 +16 * 0.7) * ((100vw - 320px) / 1280));
+  }
+}
+@media (max-width: 600px) {
+  .logo {
+    left: 20px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    background-size: 100px;
+  }
+  .nav_item_text_pososition_active {
+    left: 44%;
+    max-width: 48%;
+    bottom: 66%;
+  }
 }
